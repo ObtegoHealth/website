@@ -171,7 +171,7 @@ import "../styles/global.css";
           aria-label="Role filter pills"
         >
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-slate-900 text-white border-slate-900 shadow"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 pill-active"
             data-role="All"
             role="tab"
             aria-selected="true"
@@ -179,7 +179,7 @@ import "../styles/global.css";
             All
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-orange-100 text-slate-700 border-orange-200 hover:bg-orange-200 hover:cursor-pointer"
             data-role="Physicians"
             role="tab"
             aria-selected="false"
@@ -187,7 +187,7 @@ import "../styles/global.css";
             Physicians
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-yellow-100 text-slate-700 border-yellow-200 hover:bg-yellow-200 hover:cursor-pointer"
             data-role="Rev Cycle"
             role="tab"
             aria-selected="false"
@@ -195,7 +195,7 @@ import "../styles/global.css";
             Rev Cycle
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-emerald-100 text-slate-700 border-emerald-200 hover:bg-emerald-200 hover:cursor-pointer"
             data-role="IT/Compliance"
             role="tab"
             aria-selected="false"
@@ -203,7 +203,7 @@ import "../styles/global.css";
             IT/Compliance
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-cyan-100 text-slate-700 border-cyan-200 hover:bg-cyan-200 hover:cursor-pointer"
             data-role="Lab"
             role="tab"
             aria-selected="false"
@@ -251,11 +251,11 @@ import "../styles/global.css";
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
                 >Physicians</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
                 >Rev Cycle</span
               >
             </div>
@@ -333,11 +333,11 @@ import "../styles/global.css";
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
                 >Physicians</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-cyan-100 border border-cyan-200 text-slate-700"
                 >Lab</span
               >
             </div>
@@ -414,11 +414,11 @@ import "../styles/global.css";
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
                 >Physicians</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
                 >Rev Cycle</span
               >
             </div>
@@ -489,15 +489,15 @@ import "../styles/global.css";
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-emerald-100 border border-emerald-200 text-slate-700"
                 >IT/Compliance</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
                 >Physicians</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
                 >Rev Cycle</span
               >
             </div>
@@ -775,8 +775,15 @@ import "../styles/global.css";
 
     <!-- Minimal JS for role-based reordering (no content hidden) and 'How it works' expanders -->
     <script>
-      // Footer year
+      /*
+       * Footer year
+       */
+
       document.getElementById("year").textContent = new Date().getFullYear();
+
+			/*
+			 * Role-based Cards
+			 */
 
       const grid = document.getElementById("card-grid");
       const cards = Array.from(grid.children);
@@ -785,11 +792,7 @@ import "../styles/global.css";
         document.querySelectorAll("#role-pills > button").forEach((btn) => {
           const isActive = btn.dataset.role === targetRole;
           btn.setAttribute("aria-selected", String(isActive));
-          btn.className =
-            "px-3 py-1 rounded-full text-sm border transition-all " +
-            (isActive
-              ? "bg-slate-900 text-white border-slate-900 shadow"
-              : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50");
+          btn.classList.toggle("pill-active", isActive);
         });
       }
 
@@ -827,7 +830,10 @@ import "../styles/global.css";
         });
       });
 
-			// How it Works Image Carousel
+			/*
+			 * How it Works Image Carousel
+			 */
+
 			function initImageCarousel() {
 				const stepDivs = document.querySelectorAll('.step-div');
 				const stepImages = document.querySelectorAll('.step-image');
@@ -871,7 +877,10 @@ import "../styles/global.css";
 			// Initialize the carousel when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initImageCarousel);
 
-			// Locale Dropdown Functionality
+			/*
+			 * Locale Dropdown
+			 */
+
 			function initLocaleDropdown() {
 				const dropdownButton = document.getElementById('locale-dropdown-button');
 				const dropdownMenu = document.getElementById('locale-dropdown-menu');
