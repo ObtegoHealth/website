@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "sans-serif";
+  --font-serif: "Fraunces", "serif";
+
+  --color-emerald-50: #edfcf6;
+  --color-emerald-100: #d3f8e8;
+  --color-emerald-200: #aaf0d5;
+  --color-emerald-300: #6be0ba;
+  --color-emerald-400: #3bcca1;
+  --color-emerald-500: #17b28a;
+  --color-emerald-600: #0b9071;
+  --color-emerald-700: #09735d;
+  --color-emerald-800: #0a5b4a;
+  --color-emerald-900: #094b3f;
+  --color-emerald-950: #042a24;
+
+  --color-cyan-50: #effcfb;
+  --color-cyan-100: #d6f7f7;
+  --color-cyan-200: #b1ecf0;
+  --color-cyan-300: #74dce3;
+  --color-cyan-400: #3fc6d1;
+  --color-cyan-500: #23aab7;
+  --color-cyan-600: #20899a;
+  --color-cyan-700: #206f7e;
+  --color-cyan-800: #225b68;
+  --color-cyan-900: #214c58;
+  --color-cyan-950: #10313c;
+}
+
+.btn-primary {
+  @apply rounded-full bg-emerald-100 px-4 py-2 border-2 border-emerald-200 font-semibold hover:bg-emerald-200;
+}
+
+.btn-secondary {
+  @apply rounded-full bg-cyan-100 px-4 py-2 border-2 border-cyan-200 font-semibold hover:bg-cyan-200;
+}

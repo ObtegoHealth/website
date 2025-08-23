@@ -14,8 +14,7 @@ const localeNames = {
 
 import "@fontsource-variable/fraunces";
 import "@fontsource-variable/inter";
-import 'material-icons/iconfont/material-icons.css';
-import "../styles/global.css";
+import "../../styles/global.css";
 ---
 
 <html lang="en">
@@ -24,18 +23,18 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Obtego</title>
+		<title>Astro</title>
 	</head>
 	<body
     class="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white"
   >
-    <nav class="bg-white flex justify-between items-center p-4 bg-gradient-to-b from-emerald-100 to-slate-50">
+    <nav class="bg-white flex justify-between items-center p-4">
       <div class="flex items-center gap-2">
-        <img src="logo.svg" alt="Obtego" class="h-10" />
+        <img src="/logo.svg" alt="Obtego" class="h-10" />
       </div>
       <div class="flex items-center gap-2">
-        <!-- Language Dropdown -->
-        <div class="relative">
+         <!-- Language Dropdown -->
+         <div class="relative">
           <button 
             id="locale-dropdown-button"
             class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded-md"
@@ -72,26 +71,29 @@ import "../styles/global.css";
             </div>
           </div>
         </div>
+        <a href="#demo" class="btn-primary">查看演示</a>
       </div>
     </nav>
 
     <!-- Hero -->
     <section
       aria-labelledby="hero-title"
-      class="relative isolate overflow-hidden text-center"
+      class="relative isolate overflow-hidden -z-10"
     >
-      <div class="relative max-w-6xl mx-auto px-6 py-24">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"
+      ></div>
+      <div class="relative max-w-6xl mx-auto px-6 py-20 text-white">
         <h1
           id="hero-title"
-          class="text-4xl md:text-5xl font-semibold tracking-tight font-serif"
+          class="text-4xl md:text-5xl font-bold tracking-tight font-serif"
         >
-          Evidence-based care, payer-ready by design.
+          循证医疗，设计之初即符合支付方规范。
         </h1>
-        <p class="mt-4 max-w-2xl text-slate-600 mx-auto">
-          Clinical decisions come first. The same reasoning graph automatically
-          assembles payer-specific documentation—no insurance alerts.
+        <p class="mt-4 max-w-2xl text-slate-200">
+          临床决策优先。相同的推理图谱自动生成针对不同支付方的文档——无需保险提醒。
         </p>
-        <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <div class="mt-8 flex flex-wrap gap-3">
           <a
             class="btn-primary"
             href="#demo"
@@ -106,42 +108,42 @@ import "../styles/global.css";
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 my-24">
-      <h2 class="text-3xl font-semibold font-serif text-center mb-8">
+    <section class="max-w-6xl mx-auto px-6 my-8">
+      <h2 class="text-3xl font-bold font-serif text-center mb-8">
         Admin overhead is stealing focus
       </h2>
-      <div class="grid grid-cols-3 gap-8">
-        <div>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4">
           <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-3xl text-center font-bold">13</span>
+            <span class="font-serif text-2xl text-center font-bold">13</span>
           </div>
-          <p class="text-sm text-slate-600">
+          <p class="text-sm text-slate-500">
             The number of hours physicians spend each week on prior
             authorization tasks.
           </p>
         </div>
 
-        <div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-4">
           <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-3xl text-center font-bold">73</span>
+            <span class="font-serif text-2xl text-center font-bold">73</span>
           </div>
-          <p class="text-sm text-slate-600">
+          <p class="text-sm text-slate-500">
             The number of days it will take medical knowledge to double in size
             from 2020.
           </p>
         </div>
 
-        <div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-4">
           <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-3xl text-center font-bold">85</span>
+            <span class="font-serif text-2xl text-center font-bold">85</span>
           </div>
-          <p class="text-sm text-slate-600">
+          <p class="text-sm text-slate-500">
             The percentage of malpractice claims resulting in injury or death
             that involved a misread or misordered lab test.
           </p>
@@ -154,16 +156,13 @@ import "../styles/global.css";
     </section>
 
     <!-- Role filter -->
-    <section class="max-w-6xl mx-auto px-6 mt-24" aria-labelledby="role-filter-title">
-			<h2 class="text-3xl font-semibold font-serif text-center mb-8" id="role-filter-title">
-        See how obtego is perfect for you
-      </h2>
+    <section class="max-w-6xl mx-auto px-6" aria-labelledby="role-filter-title">
       <div
-        class="flex items-center gap-2 overflow-x-auto"
+        class="rounded-2xl bg-white border border-slate-200 shadow-sm p-4 flex items-center gap-2 overflow-x-auto"
       >
-        <p class="text-sm text-slate-600 mr-2">
+        <h2 id="role-filter-title" class="text-sm text-slate-600 mr-2">
           Tailor view by role:
-        </p>
+        </h2>
         <div
           id="role-pills"
           class="flex items-center gap-2"
@@ -220,13 +219,13 @@ import "../styles/global.css";
 
     <!-- Outcome clusters -->
     <section
-      class="max-w-6xl mx-auto px-6 mt-8 mb-24"
+      class="max-w-6xl mx-auto px-6 mt-8"
       aria-labelledby="outcomes-title"
     >
       <h2 id="outcomes-title" class="sr-only">Outcome clusters</h2>
       <div
         id="card-grid"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         <!-- Card: Fewer avoidable denials -->
         <article
@@ -239,7 +238,7 @@ import "../styles/global.css";
               <div
                 class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-								<span class="material-icons">access_time_filled</span>
+                F
               </div>
               <h3 class="text-lg font-semibold leading-tight">
                 Fewer avoidable denials
@@ -322,7 +321,7 @@ import "../styles/global.css";
               <div
                 class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-								<span class="material-icons">science</span>
+                E
               </div>
               <h3 class="text-lg font-semibold leading-tight">
                 Evidence-based testing & fewer unnecessary tests
@@ -402,7 +401,7 @@ import "../styles/global.css";
               <div
                 class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-                <span class="material-icons">shield_moon</span>
+                L
               </div>
               <h3 class="text-lg font-semibold leading-tight">
                 Less 'pajama-time' paperwork
@@ -478,7 +477,7 @@ import "../styles/global.css";
               <div
                 class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-							<span class="material-icons">manage_search</span>
+                A
               </div>
               <h3 class="text-lg font-semibold leading-tight">
                 Auditable & compliant by design
@@ -544,17 +543,18 @@ import "../styles/global.css";
 
     <!-- How it works -->
     <section
-      class="max-w-6xl mx-auto px-6 my-24"
+      class="max-w-6xl mx-auto px-6 mt-10"
       id="demo"
       aria-labelledby="how-title"
     >
-      <h2 id="how-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
-        How it works: Bridging CDS to payer docs
+      <h2 id="how-title" class="text-lg font-semibold mb-4">
+        How it works—bridging CDS to payer docs
       </h2>
-      <p class="mb-8 text-center">
+      <p class="text-xs text-slate-500 mt-3">
         Care guidance comes first. The paperwork just comes along for the
         ride—no insurance pop-ups.
       </p>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div
           class="flex flex-col md:flex-row items-center md:items-stretch gap-4"
         >
@@ -562,20 +562,13 @@ import "../styles/global.css";
           <div class="flex-1">
             <div
               id="step-1"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
+              class="rounded-xl border border-slate-400 bg-slate-50 p-4 h-full cursor-pointer step-div"
             >
-							<div
-								class="rounded-full bg-emerald-100 p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">1</span>
-							</div>
-              <div>
-								<div class="font-medium mb-1">Assess</div>
-								<p class="text-sm text-slate-700">
-									We parse history, labs, and notes into a clinician-editable
-									reasoning graph.
-								</p>
-							</div>
+              <div class="font-medium mb-1">1) Assess</div>
+              <p class="text-sm text-slate-700">
+                We parse history, labs, and notes into a clinician-editable
+                reasoning graph.
+              </p>
             </div>
           </div>
           <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center" aria-hidden="true">
@@ -592,20 +585,13 @@ import "../styles/global.css";
           <div class="flex-1">
             <div
               id="step-2"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
+              class="rounded-xl border border-slate-200 bg-slate-50 p-4 h-full cursor-pointer step-div"
             >
-							<div
-								class="rounded-full bg-emerald-100 p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">2</span>
-							</div>
-              <div>
-                <div class="font-medium mb-1">Recommend &amp; justify</div>
+              <div class="font-medium mb-1">2) Recommend & justify</div>
               <p class="text-sm text-slate-700">
-                  Each recommendation cites guidelines and patient context; edits
-                  update the graph instantly.
-                </p>
-              </div>
+                Each recommendation cites guidelines and patient context; edits
+                update the graph instantly.
+              </p>
             </div>
           </div>
           <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center" aria-hidden="true">
@@ -622,87 +608,78 @@ import "../styles/global.css";
           <div class="flex-1">
             <div
               id="step-3"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
+              class="rounded-xl border border-slate-200 bg-slate-50 p-4 h-full cursor-pointer step-div"
             >
-							<div
-								class="rounded-full bg-emerald-100 p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">3</span>
-							</div>
-              <div>
-                <div class="font-medium mb-1">Compile payer-ready packet</div>
+              <div class="font-medium mb-1">3) Compile payer-ready packet</div>
               <p class="text-sm text-slate-700">
                 The same graph populates payer-specific fields and narratives—no
                 duplicate typing.
               </p>
-              </div>
             </div>
           </div>
         </div>
-				<div class="mt-6 rounded-xl bg-white border border-slate-200 shadow-sm p-4">
-					<img id="image-1" src="screen-reading.png" alt="Assess - Parse history, labs, and notes" class="w-full step-image rounded-lg border border-slate-200" />
-					<img id="image-2" src="screen-graph.png" alt="Recommend & justify - Guidelines and patient context" class="w-full step-image rounded-lg border border-slate-200 hidden" />
-					<img id="image-3" src="screen-chat.png" alt="Compile payer-ready packet" class="w-full step-image rounded-lg border border-slate-200 hidden" />
+				<div class="mt-6">
+					<img id="image-1" src="/screen-reading.png" alt="Assess - Parse history, labs, and notes" class="w-full step-image" />
+					<img id="image-2" src="/screen-graph.png" alt="Recommend & justify - Guidelines and patient context" class="w-full step-image hidden" />
+					<img id="image-3" src="/screen-chat.png" alt="Compile payer-ready packet" class="w-full step-image hidden" />
 				</div>
+      </div>
     </section>
 
     <!-- Integrations & governance -->
     <section
-      class="max-w-6xl mx-auto px-6 my-24"
+      class="max-w-6xl mx-auto px-6 mt-10"
       id="ehr"
       aria-labelledby="integrations-title"
     >
-			<h2 id="integrations-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
-				Works where you work
-			</h2>
-			<p class="mb-8 text-center">
-				(SMART on FHIR &amp; SSO)
-			</p>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- EHR logos -->
         <div
-          class="lg:col-span-2 justify-center border-r border-slate-400"
+          class="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
         >
-          <div class="flex flex-wrap justify-center gap-6">
+          <h2 id="integrations-title" class="text-lg font-semibold mb-4">
+            Works where you work (SMART on FHIR &amp; SSO)
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             <div
-              class="h-14 max-w-1/3"
+              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
               title="Epic"
             >
-              <img src="logo-epic.svg" alt="Epic" class="h-10" />
-            </div>
-						<div
-              class="h-14 max-w-1/3"
-              title="Veradigm (Allscripts)"
-            >
-              <img src="logo-veradigm.svg" alt="Veradigm (Allscripts)" class="h-10" />
+              <img src="/logo-epic.svg" alt="Epic" class="h-10" />
             </div>
             <div
-              class="h-14 px-2 max-w-1/3"
+              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
               title="Oracle Health (Cerner)"
             >
-              <img src="logo-oracle.svg" alt="Oracle Health (Cerner)" class="h-10" />
+              <img src="/logo-oracle.svg" alt="Oracle Health (Cerner)" class="h-10" />
             </div>
             <div
-              class="h-14 px-2 max-w-1/3"
-              title="MEDITECH"
-            >
-              <img src="logo-meditech.svg" alt="MEDITECH" class="h-10" />
-            </div>
-						<div
-              class="h-14 px-2 max-w-1/3"
+              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
               title="athenahealth"
             >
-              <img src="logo-athena.svg" alt="athenahealth" class="h-10" />
+              <img src="/logo-athena.svg" alt="athenahealth" class="h-10" />
+            </div>
+            <div
+              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
+              title="MEDITECH"
+            >
+              <img src="/logo-meditech.svg" alt="MEDITECH" class="h-10" />
+            </div>
+            <div
+              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
+              title="Veradigm (Allscripts)"
+            >
+              <img src="/logo-veradigm.svg" alt="Veradigm (Allscripts)" class="h-10" />
             </div>
           </div>
+          <p class="text-xs text-slate-500 mt-3">
+            Logos shown for placement only—swap with your exact partner set.
+          </p>
         </div>
 
         <!-- Governance -->
-        <div>
-          <h3 class="text-lg font-semibold font-serif mb-2 flex items-center gap-2">
-            <span class="material-icons">lock_person</span>
-            Governance you can trust
-          </h3>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold mb-2">Governance you can trust</h3>
           <ul class="list-disc pl-5 space-y-1 text-slate-700 text-sm">
             <li>Role-based access, SSO, and approval flows</li>
             <li>Versioned change log &amp; exportable audit trail</li>
@@ -713,11 +690,11 @@ import "../styles/global.css";
     </section>
 
     <!-- CTA -->
-    <section class="max-w-6xl mx-auto px-6 my-24 text-center">
-      <h2 class="text-3xl font-semibold font-serif mb-4">
+    <section class="max-w-6xl mx-auto px-6 my-10">
+      <h2 class="text-3xl font-bold font-serif text-center mb-8">
         Ready to chat?
       </h2>
-      <p class="mb-8">
+      <p>
         Let us show you how Obtego can help you save time, save money, improve
         patient care, and improve your physician's satisfaction.
       </p>
@@ -871,7 +848,7 @@ import "../styles/global.css";
 			// Initialize the carousel when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initImageCarousel);
 
-			// Locale Dropdown Functionality
+      // Locale Dropdown Functionality
 			function initLocaleDropdown() {
 				const dropdownButton = document.getElementById('locale-dropdown-button');
 				const dropdownMenu = document.getElementById('locale-dropdown-menu');
@@ -935,7 +912,6 @@ import "../styles/global.css";
 
 			// Initialize dropdown when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initLocaleDropdown);
-
     </script>
   </body>
 </html>
