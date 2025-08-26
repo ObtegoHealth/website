@@ -28,6 +28,11 @@
   --color-cyan-900: #214c58;
   --color-cyan-950: #10313c;
 }
+/* 
+body {
+  background: url("/paper.png") repeat;
+  background-size: 300px 300px;
+} */
 
 .btn-primary {
   @apply rounded-full bg-emerald-100 px-4 py-2 border-2 border-emerald-200 font-semibold hover:bg-emerald-200;
@@ -39,4 +44,13 @@
 
 .pill-active {
   @apply bg-slate-900 text-white border-slate-900;
+}
+
+.step-div:hover .step-number {
+  @apply bg-emerald-200;
+}
+
+.demo-video {
+  width: 100%;
+  max-width: calc(100vw - 4rem);
 }

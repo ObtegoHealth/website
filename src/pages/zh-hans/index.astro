@@ -14,6 +14,7 @@ const localeNames = {
 
 import "@fontsource-variable/fraunces";
 import "@fontsource-variable/inter";
+import 'material-icons/iconfont/material-icons.css';
 import "../../styles/global.css";
 ---
 
@@ -23,21 +24,21 @@ import "../../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Obtego | 循证医疗，设计之初即符合支付方规范</title>
 	</head>
 	<body
     class="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white"
   >
-    <nav class="bg-white flex justify-between items-center p-4">
+    <nav class="bg-white flex justify-between items-center p-4 bg-gradient-to-b from-emerald-100 to-slate-50">
       <div class="flex items-center gap-2">
         <img src="/logo.svg" alt="Obtego" class="h-10" />
       </div>
       <div class="flex items-center gap-2">
-         <!-- Language Dropdown -->
-         <div class="relative">
+        <!-- Language Dropdown -->
+        <div class="relative">
           <button 
             id="locale-dropdown-button"
-            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded-md"
+            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded-md cursor-pointer"
             aria-expanded="false"
             aria-haspopup="true"
           >
@@ -71,98 +72,92 @@ import "../../styles/global.css";
             </div>
           </div>
         </div>
-        <a href="#demo" class="btn-primary">查看演示</a>
       </div>
     </nav>
 
     <!-- Hero -->
     <section
       aria-labelledby="hero-title"
-      class="relative isolate overflow-hidden -z-10"
+      class="relative isolate overflow-hidden"
     >
-      <div
-        class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"
-      ></div>
-      <div class="relative max-w-6xl mx-auto px-6 py-20 text-white">
-        <h1
-          id="hero-title"
-          class="text-4xl md:text-5xl font-bold tracking-tight font-serif"
-        >
-          循证医疗，设计之初即符合支付方规范。
-        </h1>
-        <p class="mt-4 max-w-2xl text-slate-200">
-          临床决策优先。相同的推理图谱自动生成针对不同支付方的文档——无需保险提醒。
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            class="btn-primary"
-            href="#demo"
-            >See a 3-minute walkthrough</a
-          >
-          <a
-            class="btn-secondary"
-            href="#ehr"
-            >For your EHR</a
-          >
-        </div>
-      </div>
+      <div class="relative max-w-6xl mx-auto px-6 py-24 flex gap-12 items-center">
+				<div class="text-center md:text-left">
+					<h1
+						id="hero-title"
+						class="text-4xl md:text-5xl font-semibold tracking-tight font-serif"
+					>
+            循证医疗，设计之初即符合支付方规范
+					</h1>
+					<p class="mt-4 max-w-2xl text-slate-600">
+						临床决策优先。相同的推理图谱自动生成针对不同支付方的文档。无需保险提醒。
+					</p>
+					
+						<a
+							id="open-modal"
+							href="#demo-video"
+							class="btn-primary inline-block mt-8"
+							>观看两分钟演示</a>
+				</div>
+				<div class="hidden md:block">
+					<img src="/site-banner.svg" alt="One graph to rule them all" class="w-180" />
+				</div>
+			</div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 my-8">
-      <h2 class="text-3xl font-bold font-serif text-center mb-8">
-        Admin overhead is stealing focus
+    <section class="max-w-6xl mx-auto px-6 my-32">
+      <h2 class="text-3xl font-semibold font-serif text-center mb-8">
+        行政负担正在损害患者、医生及您的财务表现
       </h2>
-      <div class="grid grid-cols-3 gap-4">
-        <div class="bg-white rounded-2xl border border-slate-200 p-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
           <div
-            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-2xl text-center font-bold">13</span>
+            <span class="font-serif text-3xl text-center font-bold">13</span>
           </div>
-          <p class="text-sm text-slate-500">
-            The number of hours physicians spend each week on prior
-            authorization tasks.
+          <p class="text-sm text-slate-600">
+            医生每周花在事前授权（prior authorization）任务上的小时数。
           </p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-slate-200 p-4">
+        <div>
           <div
-            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-2xl text-center font-bold">73</span>
+            <span class="font-serif text-3xl text-center font-bold">73</span>
           </div>
-          <p class="text-sm text-slate-500">
-            The number of days it will take medical knowledge to double in size
-            from 2020.
+          <p class="text-sm text-slate-600">
+            自2020年以来，医学知识实现倍增所需的天数。
           </p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-slate-200 p-4">
+        <div>
           <div
-            class="rounded-full bg-blue-100 p-6 w-20 h-20 flex items-center justify-center mx-auto mb-4"
+            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
           >
-            <span class="font-serif text-2xl text-center font-bold">85</span>
+            <span class="font-serif text-3xl text-center font-bold">85</span>
           </div>
-          <p class="text-sm text-slate-500">
-            The percentage of malpractice claims resulting in injury or death
-            that involved a misread or misordered lab test.
+          <p class="text-sm text-slate-600">
+            涉及误读或误开实验室检查的医疗事故索赔中，导致伤害或死亡的比例。
           </p>
         </div>
       </div>
-      <p class="text-sm text-slate-500 text-center mt-4">
-        Why are we wasting our physicians time with payer admin work when their
-        focus is needed more than ever? It's clearly not saving anyone money...
+      <p class="text-slate-500 text-center mt-8">
+        为什么我们要让医生浪费宝贵时间在支付方的行政事务上，而不是专注于临床？显然这并未为任何人节省成本；<span class="font-bold">仅在2023年，医院就为事前授权支出了近200亿美元。</span>
       </p>
     </section>
 
     <!-- Role filter -->
-    <section class="max-w-6xl mx-auto px-6" aria-labelledby="role-filter-title">
+    <section class="max-w-6xl mx-auto px-6 mt-32" aria-labelledby="role-filter-title">
+			<h2 class="text-3xl font-semibold font-serif text-center mb-8" id="role-filter-title">
+        了解 Obtego 如何完美契合您的需求
+      </h2>
       <div
-        class="rounded-2xl bg-white border border-slate-200 shadow-sm p-4 flex items-center gap-2 overflow-x-auto"
+        class="flex items-center gap-2 overflow-x-auto hidden md:flex"
       >
-        <h2 id="role-filter-title" class="text-sm text-slate-600 mr-2">
-          Tailor view by role:
-        </h2>
+        <p class="text-sm text-slate-600 mr-2">
+          按角色定制视图:
+        </p>
         <div
           id="role-pills"
           class="flex items-center gap-2"
@@ -170,62 +165,61 @@ import "../../styles/global.css";
           aria-label="Role filter pills"
         >
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-slate-900 text-white border-slate-900 shadow"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 pill-active"
             data-role="All"
             role="tab"
             aria-selected="true"
           >
-            All
+            全部
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-orange-100 text-slate-700 border-orange-200 hover:bg-orange-200 hover:cursor-pointer"
             data-role="Physicians"
             role="tab"
             aria-selected="false"
           >
-            Physicians
+            医生
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-yellow-100 text-slate-700 border-yellow-200 hover:bg-yellow-200 hover:cursor-pointer"
             data-role="Rev Cycle"
             role="tab"
             aria-selected="false"
           >
-            Rev Cycle
+            收入循环（Rev Cycle）
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-emerald-100 text-slate-700 border-emerald-200 hover:bg-emerald-200 hover:cursor-pointer"
             data-role="IT/Compliance"
             role="tab"
             aria-selected="false"
           >
-            IT/Compliance
+            IT/合规
           </button>
           <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+            class="px-3 py-1 rounded-full text-sm border transition-all bg-cyan-100 text-slate-700 border-cyan-200 hover:bg-cyan-200 hover:cursor-pointer"
             data-role="Lab"
             role="tab"
             aria-selected="false"
           >
-            Lab
+            实验室
           </button>
         </div>
         <span class="text-xs text-slate-500 ml-auto"
-          >We reorder content to surface what matters to you, without hiding the
-          rest.</span
+          >我们会根据您的角色重新排序内容，突出最相关的部分，但不会隐藏其他信息。</span
         >
       </div>
     </section>
 
     <!-- Outcome clusters -->
     <section
-      class="max-w-6xl mx-auto px-6 mt-8"
+      class="max-w-6xl mx-auto px-6 mt-8 mb-32"
       aria-labelledby="outcomes-title"
     >
       <h2 id="outcomes-title" class="sr-only">Outcome clusters</h2>
       <div
         id="card-grid"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5"
       >
         <!-- Card: Fewer avoidable denials -->
         <article
@@ -236,41 +230,31 @@ import "../../styles/global.css";
           <div>
             <div class="flex items-center gap-3 mb-3">
               <div
-                class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
+                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-                F
+								<span class="material-icons">access_time_filled</span>
               </div>
               <h3 class="text-lg font-semibold leading-tight">
-                Fewer avoidable denials
+                更少可避免的拒付
               </h3>
             </div>
             <p class="text-slate-700 mb-3">
-              Submit complete, payer-ready packets the first time—reduce rework
-              and write-offs.
+              一次性提交完整、符合支付方要求的资料包——减少返工与坏账。
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Physicians</span
-              >
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700">
+                医生
+              </span>
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Rev Cycle</span
-              >
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700">
+                收入循环
+              </span>
             </div>
             <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Payer-specific prior-auth packets & appeal narratives
-                auto-assembled from the same clinical reasoning graph.
-              </li>
-              <li>
-                No ambiguous 'Other': required fields highlighted; supporting
-                evidence attached by default.
-              </li>
-              <li>
-                Service-line analytics on top denial reasons to fix upstream
-                gaps.
-              </li>
+              <li>基于同一临床推理图自动生成支付方特定的事前授权资料包与申诉叙述。</li>
+              <li>不再出现含糊的“其他”：系统自动突出必填字段，并默认附上支持性证据。</li>
+              <li>提供服务线分析，揭示主要拒付原因，帮助修复上游流程漏洞。</li>
             </ul>
           </div>
           <div class="mt-4 border-t pt-4">
@@ -279,7 +263,7 @@ import "../../styles/global.css";
               aria-expanded="false"
               aria-controls="hw-denials"
             >
-              How it works
+            工作原理
               <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
                 <path
                   d="M4 12h14M13 5l7 7-7 7"
@@ -293,18 +277,9 @@ import "../../styles/global.css";
             </button>
             <div id="hw-denials" class="mt-3 text-sm text-slate-700 hidden">
               <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  The reasoning graph maps findings → guideline criteria → payer
-                  policy.
-                </li>
-                <li>
-                  A compiler selects the exact fields and attachments each payer
-                  requires.
-                </li>
-                <li>
-                  Outbound is logged; responses and appeals update the same
-                  episode record.
-                </li>
+                <li></li>推理图映射检查结果 → 指南标准 → 支付方政策。</li>
+                <li>编译器自动选择各支付方所需的精确字段和附件。</li>
+                <li>外发记录被完整留存；回应与申诉会实时更新同一就诊记录。</li>
               </ol>
             </div>
           </div>
@@ -319,39 +294,31 @@ import "../../styles/global.css";
           <div>
             <div class="flex items-center gap-3 mb-3">
               <div
-                class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
+                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-                E
+								<span class="material-icons">science</span>
               </div>
               <h3 class="text-lg font-semibold leading-tight">
-                Evidence-based testing & fewer unnecessary tests
+                基于证据的检测 & 更少不必要检查
               </h3>
             </div>
             <p class="text-slate-700 mb-3">
-              Order confidently with rationale you can see, edit, and defend.
+              凭借可见、可编辑、可辩护的逻辑，放心下达检查医嘱。
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Physicians</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
+                >医生</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Lab</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-cyan-100 border border-cyan-200 text-slate-700"
+                >实验室</span
               >
             </div>
             <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Live reasoning graph links recommendations to guidelines, labs,
-                and patient context.
-              </li>
-              <li>
-                Reflex & next-best-test suggestions adapt as results arrive.
-              </li>
-              <li>
-                Interference flags and practicalities (turnaround, specimen)
-                surfaced inline.
-              </li>
+              <li>实时推理图将推荐与指南、实验室、患者背景相连接。</li>
+              <li>反射试验（Reflex）与下一步最佳检查建议会随结果动态调整。</li>
+              <li>干扰提示及实际注意事项（如周转时间、标本要求）即时呈现。</li>
             </ul>
           </div>
           <div class="mt-4 border-t pt-4">
@@ -360,7 +327,7 @@ import "../../styles/global.css";
               aria-expanded="false"
               aria-controls="hw-evidence"
             >
-              How it works
+              工作原理
               <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
                 <path
                   d="M4 12h14M13 5l7 7-7 7"
@@ -374,17 +341,9 @@ import "../../styles/global.css";
             </button>
             <div id="hw-evidence" class="mt-3 text-sm text-slate-700 hidden">
               <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  We parse the chart and update a clinician-editable reasoning
-                  graph.
-                </li>
-                <li>
-                  Each edge cites evidence; editing nodes immediately updates
-                  the plan.
-                </li>
-                <li>
-                  That same graph feeds documentation—no duplicate typing.
-                </li>
+                <li></li>我们解析病历并更新可供临床医生编辑的推理图。</li>
+                <li>每条边均有证据引用；节点编辑会立即更新计划。</li>
+                <li>同一推理图直接生成文书——无需重复输入。</li>
               </ol>
             </div>
           </div>
@@ -399,38 +358,31 @@ import "../../styles/global.css";
           <div>
             <div class="flex items-center gap-3 mb-3">
               <div
-                class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
+                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-                L
+                <span class="material-icons">shield_moon</span>
               </div>
               <h3 class="text-lg font-semibold leading-tight">
-                Less 'pajama-time' paperwork
+                更少“睡衣时间”的文书负担
               </h3>
             </div>
             <p class="text-slate-700 mb-3">
-              Documentation writes itself from your care reasoning—no
-              copy-paste.
+              文档自动生成于您的诊疗推理——无需复制粘贴。
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Physicians</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
+                >医生</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Rev Cycle</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
+                >收入循环</span
               >
             </div>
             <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Auto-generated notes and medical-necessity language pulled
-                directly from the reasoning graph.
-              </li>
-              <li>
-                Smart pre-fill for forms; required fields and attachments
-                handled automatically.
-              </li>
-              <li>Works inside your EHR—one-click to note/inbox.</li>
+              <li></li>自动生成的病程记录和“医疗必要性”语言直接来自推理图。</li>
+              <li>表格智能预填；必填字段与附件自动处理。</li>
+              <li>无缝嵌入EHR——一键生成病程记录或收件箱消息。</li>
             </ul>
           </div>
           <div class="mt-4 border-t pt-4">
@@ -439,7 +391,7 @@ import "../../styles/global.css";
               aria-expanded="false"
               aria-controls="hw-paperwork"
             >
-              How it works
+              工作原理
               <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
                 <path
                   d="M4 12h14M13 5l7 7-7 7"
@@ -453,14 +405,9 @@ import "../../styles/global.css";
             </button>
             <div id="hw-paperwork" class="mt-3 text-sm text-slate-700 hidden">
               <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  Clinician decisions populate a structured evidence model.
-                </li>
-                <li>
-                  Templates render payer-ready prose and EHR-ready notes from
-                  that model.
-                </li>
-                <li>Edits are tracked in a versioned audit trail.</li>
+                <li></li>临床决策填充为结构化证据模型。</li>
+                <li>模板从该模型渲染出符合支付方要求的叙述及EHR可用的病程记录。</li>
+                <li>所有编辑均保存在版本化审计轨迹中。</li>
               </ol>
             </div>
           </div>
@@ -475,37 +422,35 @@ import "../../styles/global.css";
           <div>
             <div class="flex items-center gap-3 mb-3">
               <div
-                class="w-10 h-10 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
+                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
               >
-                A
+							<span class="material-icons">manage_search</span>
               </div>
               <h3 class="text-lg font-semibold leading-tight">
-                Auditable & compliant by design
+                设计即合规，可审计
               </h3>
             </div>
             <p class="text-slate-700 mb-3">
-              Every decision has a timestamped why, what, and who.
+              每一项决策都有带时间戳的“原因、内容与执行人”。
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >IT/Compliance</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-emerald-100 border border-emerald-200 text-slate-700"
+                >IT/合规</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Physicians</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
+                >医生</span
               >
               <span
-                class="text-xs px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
-                >Rev Cycle</span
+                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
+                >收入循环</span
               >
             </div>
             <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>Versioned timeline of sources, edits, and approvals.</li>
-              <li>
-                Role-based permissions, SSO, and change-control workflows.
-              </li>
-              <li>Exportable record that stands up to payer scrutiny.</li>
+              <li></li>来源、编辑与审批的版本化时间线。</li>
+              <li>基于角色的权限管理、单点登录（SSO）、变更控制流程。</li>
+              <li>可导出的记录，足以经受支付方审查。</li>
             </ul>
           </div>
           <div class="mt-4 border-t pt-4">
@@ -514,8 +459,8 @@ import "../../styles/global.css";
               aria-expanded="false"
               aria-controls="hw-auditable"
             >
-              How it works
-              <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
+              工作原理
+              <svg viewBox="0 0 24 24" class="w-5 h-5 hidden md:block" aria-hidden="true">
                 <path
                   d="M4 12h14M13 5l7 7-7 7"
                   fill="none"
@@ -528,13 +473,10 @@ import "../../styles/global.css";
             </button>
             <div id="hw-auditable" class="mt-3 text-sm text-slate-700 hidden">
               <ol class="list-decimal pl-5 space-y-1">
-                <li>All graph changes are signed with user + time.</li>
-                <li>
-                  Policy links and criteria snapshots are embedded alongside
-                  decisions.
-                </li>
-                <li>Reports can be reproduced exactly as submitted.</li>
-              </ol>
+                <li>所有图谱更改均带有用户与时间签名。</li>
+                <li>政策链接与标准快照与决策一并嵌入。</li>
+                <li>报告可精确再现为提交时的状态。</li>
+              </ol></li>
             </div>
           </div>
         </article>
@@ -543,18 +485,16 @@ import "../../styles/global.css";
 
     <!-- How it works -->
     <section
-      class="max-w-6xl mx-auto px-6 mt-10"
+      class="max-w-6xl mx-auto px-6 my-32"
       id="demo"
       aria-labelledby="how-title"
     >
-      <h2 id="how-title" class="text-lg font-semibold mb-4">
-        How it works—bridging CDS to payer docs
+      <h2 id="how-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
+        工作原理：从临床决策支持到支付方文档的桥梁
       </h2>
-      <p class="text-xs text-slate-500 mt-3">
-        Care guidance comes first. The paperwork just comes along for the
-        ride—no insurance pop-ups.
+      <p class="mb-8 text-center">
+        临床指导先行。文书资料自然而然生成——无需保险系统弹窗打扰。
       </p>
-      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div
           class="flex flex-col md:flex-row items-center md:items-stretch gap-4"
         >
@@ -562,16 +502,22 @@ import "../../styles/global.css";
           <div class="flex-1">
             <div
               id="step-1"
-              class="rounded-xl border border-slate-400 bg-slate-50 p-4 h-full cursor-pointer step-div"
+              class="flex items-center gap-3 h-full cursor-pointer step-div"
             >
-              <div class="font-medium mb-1">1) Assess</div>
-              <p class="text-sm text-slate-700">
-                We parse history, labs, and notes into a clinician-editable
-                reasoning graph.
-              </p>
+							<div
+								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
+							>
+								<span class="font-serif text-xl text-center font-bold">1</span>
+							</div>
+              <div>
+								<div class="font-medium mb-1">评估</div>
+								<p class="text-sm text-slate-700">
+									解析病史、检查和记录，生成可编辑的临床推理图。
+								</p>
+							</div>
             </div>
           </div>
-          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center hidden md:block" aria-hidden="true">
             <path
               d="M4 12h14M13 5l7 7-7 7"
               fill="none"
@@ -585,16 +531,22 @@ import "../../styles/global.css";
           <div class="flex-1">
             <div
               id="step-2"
-              class="rounded-xl border border-slate-200 bg-slate-50 p-4 h-full cursor-pointer step-div"
+              class="flex items-center gap-3 h-full cursor-pointer step-div"
             >
-              <div class="font-medium mb-1">2) Recommend & justify</div>
-              <p class="text-sm text-slate-700">
-                Each recommendation cites guidelines and patient context; edits
-                update the graph instantly.
-              </p>
+							<div
+								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
+							>
+								<span class="font-serif text-xl text-center font-bold">2</span>
+							</div>
+              <div>
+                <div class="font-medium mb-1">推荐与论证</div>
+                <p class="text-sm text-slate-700">
+                  每项推荐均引用指南与患者背景；编辑即时更新推理图。
+                </p>
+              </div>
             </div>
           </div>
-          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center hidden md:block" aria-hidden="true">
             <path
               d="M4 12h14M13 5l7 7-7 7"
               fill="none"
@@ -608,100 +560,104 @@ import "../../styles/global.css";
           <div class="flex-1">
             <div
               id="step-3"
-              class="rounded-xl border border-slate-200 bg-slate-50 p-4 h-full cursor-pointer step-div"
+              class="flex items-center gap-3 h-full cursor-pointer step-div"
             >
-              <div class="font-medium mb-1">3) Compile payer-ready packet</div>
+							<div
+								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
+							>
+								<span class="font-serif text-xl text-center font-bold">3</span>
+							</div>
+              <div>
+                <div class="font-medium mb-1">编译支付方资料包</div>
               <p class="text-sm text-slate-700">
-                The same graph populates payer-specific fields and narratives—no
-                duplicate typing.
+                同一推理图自动填充支付方字段和叙述——无需重复输入。
               </p>
+              </div>
             </div>
           </div>
         </div>
-				<div class="mt-6">
-					<img id="image-1" src="/screen-reading.png" alt="Assess - Parse history, labs, and notes" class="w-full step-image" />
-					<img id="image-2" src="/screen-graph.png" alt="Recommend & justify - Guidelines and patient context" class="w-full step-image hidden" />
-					<img id="image-3" src="/screen-chat.png" alt="Compile payer-ready packet" class="w-full step-image hidden" />
+				<div class="mt-6 rounded-xl bg-white border border-slate-200 shadow-sm p-4">
+					<img id="image-1" src="/screen-step-1.png" alt="Assess - Parse history, labs, and notes" class="w-full step-image rounded-lg border border-slate-200" />
+					<img id="image-2" src="/screen-step-2.png" alt="Recommend & justify - Guidelines and patient context" class="w-full step-image rounded-lg border border-slate-200 hidden" />
+					<img id="image-3" src="/screen-step-3.png" alt="Compile payer-ready packet" class="w-full step-image rounded-lg border border-slate-200 hidden" />
 				</div>
-      </div>
     </section>
 
     <!-- Integrations & governance -->
     <section
-      class="max-w-6xl mx-auto px-6 mt-10"
+      class="max-w-6xl mx-auto px-6 my-32"
       id="ehr"
       aria-labelledby="integrations-title"
     >
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+			<h2 id="integrations-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
+				随时随地支持您的工作
+			</h2>
+			<p class="mb-8 text-center">
+				（SMART on FHIR 与 SSO 支持）
+			</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
         <!-- EHR logos -->
         <div
-          class="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          class="lg:col-span-2 justify-center md:border-r border-slate-400"
         >
-          <h2 id="integrations-title" class="text-lg font-semibold mb-4">
-            Works where you work (SMART on FHIR &amp; SSO)
-          </h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <div class="flex flex-wrap justify-center gap-6">
             <div
-              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
+              class="h-14 max-w-1/3"
               title="Epic"
             >
-              <img src="/logo-epic.svg" alt="Epic" class="h-10" />
+              <img src="/logo-epic.svg" alt="Epic" class="h-10" loading="lazy" />
             </div>
-            <div
-              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
-              title="Oracle Health (Cerner)"
-            >
-              <img src="/logo-oracle.svg" alt="Oracle Health (Cerner)" class="h-10" />
-            </div>
-            <div
-              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
-              title="athenahealth"
-            >
-              <img src="/logo-athena.svg" alt="athenahealth" class="h-10" />
-            </div>
-            <div
-              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
-              title="MEDITECH"
-            >
-              <img src="/logo-meditech.svg" alt="MEDITECH" class="h-10" />
-            </div>
-            <div
-              class="h-14 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center text-sm font-medium text-slate-700"
+						<div
+              class="h-14 max-w-1/3"
               title="Veradigm (Allscripts)"
             >
-              <img src="/logo-veradigm.svg" alt="Veradigm (Allscripts)" class="h-10" />
+              <img src="/logo-veradigm.svg" alt="Veradigm (Allscripts)" class="h-10" loading="lazy" />
+            </div>
+            <div
+              class="h-14 px-2 max-w-1/3"
+              title="Oracle Health (Cerner)"
+            >
+              <img src="/logo-oracle.svg" alt="Oracle Health (Cerner)" class="h-10" loading="lazy" />
+            </div>
+            <div
+              class="h-14 px-2 max-w-1/3"
+              title="MEDITECH"
+            >
+              <img src="/logo-meditech.svg" alt="MEDITECH" class="h-10" loading="lazy" />
+            </div>
+						<div
+              class="h-14 px-2 max-w-1/3"
+              title="athenahealth"
+            >
+              <img src="/logo-athena.svg" alt="athenahealth" class="h-10" loading="lazy" />
             </div>
           </div>
-          <p class="text-xs text-slate-500 mt-3">
-            Logos shown for placement only—swap with your exact partner set.
-          </p>
         </div>
 
         <!-- Governance -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="text-lg font-semibold mb-2">Governance you can trust</h3>
+        <div class="mx-auto md:mx-0">
+          <h3 class="text-lg font-semibold font-serif mb-2 flex items-center gap-2">
+            <span class="material-icons">lock_person</span>
+            值得信赖的治理
+          </h3>
           <ul class="list-disc pl-5 space-y-1 text-slate-700 text-sm">
-            <li>Role-based access, SSO, and approval flows</li>
-            <li>Versioned change log &amp; exportable audit trail</li>
-            <li>Policy links embedded with each decision</li>
+            <li></li>基于角色的访问控制、SSO 与审批流程</li>
+            <li>版本化变更日志与可导出的审计轨迹</li>
+            <li>每一项决策均嵌入政策链接</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="max-w-6xl mx-auto px-6 my-10">
-      <h2 class="text-3xl font-bold font-serif text-center mb-8">
-        Ready to chat?
+    <section class="max-w-6xl mx-auto px-6 my-32 text-center">
+      <h2 class="text-3xl font-semibold font-serif mb-4">
+        准备好沟通了吗？
       </h2>
-      <p>
-        Let us show you how Obtego can help you save time, save money, improve
-        patient care, and improve your physician's satisfaction.
+      <p class="mb-8">
+        让我们向您展示 Obtego 如何帮助您节省时间、降低成本、提升患者护理质量，并提高医生的满意度。
       </p>
-      <div class="flex gap-2 justify-center">
-        <a href="#" class="btn-primary">See a Demo</a>
-        <a href="#" class="btn-secondary">See a Demo</a>
-      </div>
+      <a href="mailto:hello@obtego.io" class="btn-primary">立即联系我们</a>
     </section>
 
     <!-- Persona deep-dives -->
@@ -750,10 +706,26 @@ import "../../styles/global.css";
       © <span id="year"></span> Obtego
     </footer>
 
+    <aside id="modal" class="fixed top-0 left-0 w-full h-full bg-slate-500/50 z-50 hidden">
+      <div class="max-w-3xl bg-white rounded-xl shadow-lg border border-slate-200 w-3/4 mx-auto p-6 pt-14 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/Xvlrs8OGLYQ?si=0-0000000000000000" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="rounded-lg aspect-video demo-video" allowfullscreen></iframe>
+        <button class="absolute top-4 right-4 text-slate-500 hover:text-slate-700 cursor-pointer" onclick="closeVideo()">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+    </aside>
+
     <!-- Minimal JS for role-based reordering (no content hidden) and 'How it works' expanders -->
     <script>
-      // Footer year
+      /*
+       * Footer year
+       */
+
       document.getElementById("year").textContent = new Date().getFullYear();
+
+			/*
+			 * Role-based Cards
+			 */
 
       const grid = document.getElementById("card-grid");
       const cards = Array.from(grid.children);
@@ -762,11 +734,7 @@ import "../../styles/global.css";
         document.querySelectorAll("#role-pills > button").forEach((btn) => {
           const isActive = btn.dataset.role === targetRole;
           btn.setAttribute("aria-selected", String(isActive));
-          btn.className =
-            "px-3 py-1 rounded-full text-sm border transition-all " +
-            (isActive
-              ? "bg-slate-900 text-white border-slate-900 shadow"
-              : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50");
+          btn.classList.toggle("pill-active", isActive);
         });
       }
 
@@ -804,7 +772,10 @@ import "../../styles/global.css";
         });
       });
 
-			// How it Works Image Carousel
+			/*
+			 * How it Works Image Carousel
+			 */
+
 			function initImageCarousel() {
 				const stepDivs = document.querySelectorAll('.step-div');
 				const stepImages = document.querySelectorAll('.step-image');
@@ -822,15 +793,13 @@ import "../../styles/global.css";
 
 					// Reset all step divs to inactive state
 					stepDivs.forEach(div => {
-						div.classList.remove('border-slate-400');
-						div.classList.add('border-slate-200');
+						div.querySelector('.rounded-full').classList.remove('bg-emerald-200');
 					});
 
 					// Activate selected step div
 					const targetStep = document.getElementById(`step-${stepNumber}`);
 					if (targetStep) {
-						targetStep.classList.remove('border-slate-200');
-						targetStep.classList.add('border-slate-400');
+						targetStep.querySelector('.rounded-full').classList.add('bg-emerald-200');
 					}
 				}
 
@@ -848,7 +817,10 @@ import "../../styles/global.css";
 			// Initialize the carousel when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initImageCarousel);
 
-      // Locale Dropdown Functionality
+			/*
+			 * Locale Dropdown
+			 */
+
 			function initLocaleDropdown() {
 				const dropdownButton = document.getElementById('locale-dropdown-button');
 				const dropdownMenu = document.getElementById('locale-dropdown-menu');
@@ -912,6 +884,38 @@ import "../../styles/global.css";
 
 			// Initialize dropdown when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initLocaleDropdown);
+
+			/*
+			 * Video Modal
+			 */
+
+      function initVideoModal() {
+				const modal = document.querySelector('#modal');
+        const openButton = document.querySelector('#open-modal');
+				const closeButton = modal?.querySelector('button');
+
+        function openVideo() {
+          modal?.classList.remove('hidden');
+        }
+
+        function closeVideo() {
+          modal?.classList.add('hidden');
+        }
+
+        // Close dropdown on escape key
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape') {
+						closeVideo();
+					}
+				});
+
+        openButton?.addEventListener('click', openVideo);
+        closeButton?.addEventListener('click', closeVideo);
+			}
+
+			// Initialize video modal when DOM is loaded
+			document.addEventListener('DOMContentLoaded', initVideoModal);
+
     </script>
   </body>
 </html>
