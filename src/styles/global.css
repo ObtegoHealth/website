@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "DIN Alternate Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("DIN Alternate Bold"),
+    url("/fonts/DINAlternate-Bold.woff") format("woff");
+}
+
 @theme {
   --font-sans: "Inter", "sans-serif";
-  --font-serif: "Fraunces", "serif";
+  --font-serif: "DIN Alternate Bold", "serif";
 
   --color-emerald-50: #edfcf6;
   --color-emerald-100: #d3f8e8;
@@ -28,14 +36,14 @@
   --color-cyan-900: #214c58;
   --color-cyan-950: #10313c;
 }
-/* 
+
 body {
-  background: url("/paper.png") repeat;
-  background-size: 300px 300px;
-} */
+  background: url("/rosetta.jpg") no-repeat 33vw 0 fixed, #edfcf6;
+  background-size: auto 80vh;
+}
 
 .btn-primary {
-  @apply rounded-full bg-emerald-100 px-4 py-2 border-2 border-emerald-200 font-semibold hover:bg-emerald-200;
+  @apply rounded-full bg-emerald-900 px-4 py-2 font-semibold hover:bg-emerald-800 text-white;
 }
 
 .btn-secondary {

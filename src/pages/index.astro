@@ -7,13 +7,11 @@ const homeURLZhHans = getRelativeLocaleUrl("zh-hans");
 const homeURLEn = getRelativeLocaleUrl("en");
 
 // Locale display names
-const localeNames = {
+const localeNames: Record<string, string> = {
   "en": "English",
   "zh-hans": "中文"
 };
 
-import "@fontsource-variable/fraunces";
-import "@fontsource-variable/inter";
 import 'material-icons/iconfont/material-icons.css';
 import "../styles/global.css";
 ---
@@ -24,15 +22,10 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Obtego | Evidence-based care, payer-ready by design</title>
+		<title>Obtego | More Engaing Healthcare</title>
 	</head>
-	<body
-    class="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white"
-  >
-    <nav class="bg-white flex justify-between items-center p-4 bg-gradient-to-b from-emerald-100 to-slate-50">
-      <div class="flex items-center gap-2">
-        <img src="/logo.svg" alt="Obtego" class="h-10" />
-      </div>
+	<body class="flex flex-col min-h-screen text-emerald-900">
+    <nav class="fixed w-full top-0 left-0 flex flex-row-reverse p-4 z-50">
       <div class="flex items-center gap-2">
         <!-- Language Dropdown -->
         <div class="relative">
@@ -78,707 +71,66 @@ import "../styles/global.css";
     <!-- Hero -->
     <section
       aria-labelledby="hero-title"
-      class="relative isolate overflow-hidden"
+      class="relative isolate overflow-hidden flex-1 flex items-center"
     >
-      <div class="relative max-w-6xl mx-auto px-6 py-24 flex gap-12 items-center">
-				<div class="text-center md:text-left">
-					<h1
-						id="hero-title"
-						class="text-4xl md:text-5xl font-semibold tracking-tight font-serif"
-					>
-						Evidence-based care, payer-ready by design
-					</h1>
-					<p class="mt-4 max-w-2xl text-slate-600">
-						Clinical decisions come first. The same reasoning graph automatically
-						assembles payer-specific documentation. No insurance alerts.
-					</p>
-					
-						<a
-							id="open-modal"
-							href="#demo-video"
-							class="btn-primary inline-block mt-8"
-							>See a 2-minute walkthrough</a
-						>
-					
-				</div>
-				<div class="hidden md:block">
-					<img src="/site-banner.svg" alt="One graph to rule them all" class="w-180" />
-				</div>
-			</div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 my-32">
-      <h2 class="text-3xl font-semibold font-serif text-center mb-8">
-        Admin overhead harms patients, physicians, and your bottom line
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="font-serif text-3xl text-center font-bold">13</span>
-          </div>
-          <p class="text-sm text-slate-600">
-            The number of hours physicians spend each week on prior
-            authorization tasks.
-          </p>
-        </div>
-
-        <div>
-          <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="font-serif text-3xl text-center font-bold">73</span>
-          </div>
-          <p class="text-sm text-slate-600">
-            The number of days it will take medical knowledge to double in size
-            from 2020.
-          </p>
-        </div>
-
-        <div>
-          <div
-            class="rounded-full bg-cyan-100 p-6 w-28 h-28 flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="font-serif text-3xl text-center font-bold">85</span>
-          </div>
-          <p class="text-sm text-slate-600">
-            The percentage of malpractice claims resulting in injury or death
-            that involved a misread or misordered lab test.
-          </p>
-        </div>
-      </div>
-      <p class="text-slate-500 text-center mt-8">
-        Why are we wasting our physicians time with payer admin work when their
-        focus is needed more than ever? It's clearly not saving anyone money; <span class="font-bold">hospitals spent almost $20B on prior authorization in 2023.</span>
-      </p>
-    </section>
-
-    <!-- Role filter -->
-    <section class="max-w-6xl mx-auto px-6 mt-32" aria-labelledby="role-filter-title">
-			<h2 class="text-3xl font-semibold font-serif text-center mb-8" id="role-filter-title">
-        See how obtego is perfect for you
-      </h2>
-      <div
-        class="flex items-center gap-2 overflow-x-auto hidden md:flex"
-      >
-        <p class="text-sm text-slate-600 mr-2">
-          Tailor view by role:
-        </p>
-        <div
-          id="role-pills"
-          class="flex items-center gap-2"
-          role="tablist"
-          aria-label="Role filter pills"
+      <div class="relative max-w-3xl ml-48 px-6 py-24 text-center md:text-left">
+        <img src="/obtego-logo.svg" alt="Obtego" class="h-16" />
+        <h1
+          id="hero-title"
+          class="text-3xl md:text-4xl font-semibold tracking-tight font-serif my-4"
         >
-          <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-white text-slate-700 border-slate-200 pill-active"
-            data-role="All"
-            role="tab"
-            aria-selected="true"
+          Your relationship with your healthcare provider should be informative and engaging.
+        </h1>
+        <div class="relative my-8">
+          <form
+            id="signup-form"
+            data-netlify="true"
+            netlify-honeypot
+            name="signup"
+            method="POST"
           >
-            All
-          </button>
-          <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-orange-100 text-slate-700 border-orange-200 hover:bg-orange-200 hover:cursor-pointer"
-            data-role="Physicians"
-            role="tab"
-            aria-selected="false"
-          >
-            Physicians
-          </button>
-          <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-yellow-100 text-slate-700 border-yellow-200 hover:bg-yellow-200 hover:cursor-pointer"
-            data-role="Rev Cycle"
-            role="tab"
-            aria-selected="false"
-          >
-            Rev Cycle
-          </button>
-          <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-emerald-100 text-slate-700 border-emerald-200 hover:bg-emerald-200 hover:cursor-pointer"
-            data-role="IT/Compliance"
-            role="tab"
-            aria-selected="false"
-          >
-            IT/Compliance
-          </button>
-          <button
-            class="px-3 py-1 rounded-full text-sm border transition-all bg-cyan-100 text-slate-700 border-cyan-200 hover:bg-cyan-200 hover:cursor-pointer"
-            data-role="Lab"
-            role="tab"
-            aria-selected="false"
-          >
-            Lab
-          </button>
-        </div>
-        <span class="text-xs text-slate-500 ml-auto"
-          >We reorder content to surface what matters to you, without hiding the
-          rest.</span
-        >
-      </div>
-    </section>
-
-    <!-- Outcome clusters -->
-    <section
-      class="max-w-6xl mx-auto px-6 mt-8 mb-32"
-      aria-labelledby="outcomes-title"
-    >
-      <h2 id="outcomes-title" class="sr-only">Outcome clusters</h2>
-      <div
-        id="card-grid"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5"
-      >
-        <!-- Card: Fewer avoidable denials -->
-        <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-          data-roles="Physicians,Rev Cycle"
-          data-id="denials"
-        >
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <div
-                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
-              >
-								<span class="material-icons">access_time_filled</span>
-              </div>
-              <h3 class="text-lg font-semibold leading-tight">
-                Fewer avoidable denials
-              </h3>
-            </div>
-            <p class="text-slate-700 mb-3">
-              Submit complete, payer-ready packets the first time—reduce rework
-              and write-offs.
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
             </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
-                >Physicians</span
-              >
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
-                >Rev Cycle</span
-              >
-            </div>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Payer-specific prior-auth packets & appeal narratives
-                auto-assembled from the same clinical reasoning graph.
-              </li>
-              <li>
-                No ambiguous 'Other': required fields highlighted; supporting
-                evidence attached by default.
-              </li>
-              <li>
-                Service-line analytics on top denial reasons to fix upstream
-                gaps.
-              </li>
-            </ul>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <button
-              class="text-sm font-medium text-slate-900 hover:underline flex items-center gap-2 how-toggle"
-              aria-expanded="false"
-              aria-controls="hw-denials"
-            >
-              How it works
-              <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
-                <path
-                  d="M4 12h14M13 5l7 7-7 7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="hw-denials" class="mt-3 text-sm text-slate-700 hidden">
-              <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  The reasoning graph maps findings → guideline criteria → payer
-                  policy.
-                </li>
-                <li>
-                  A compiler selects the exact fields and attachments each payer
-                  requires.
-                </li>
-                <li>
-                  Outbound is logged; responses and appeals update the same
-                  episode record.
-                </li>
-              </ol>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card: Evidence-based testing & fewer unnecessary tests -->
-        <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-          data-roles="Physicians,Lab"
-          data-id="evidence"
-        >
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <div
-                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
-              >
-								<span class="material-icons">science</span>
-              </div>
-              <h3 class="text-lg font-semibold leading-tight">
-                Evidence-based testing & fewer unnecessary tests
-              </h3>
-            </div>
-            <p class="text-slate-700 mb-3">
-              Order confidently with rationale you can see, edit, and defend.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
-                >Physicians</span
-              >
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-cyan-100 border border-cyan-200 text-slate-700"
-                >Lab</span
-              >
-            </div>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Live reasoning graph links recommendations to guidelines, labs,
-                and patient context.
-              </li>
-              <li>
-                Reflex & next-best-test suggestions adapt as results arrive.
-              </li>
-              <li>
-                Interference flags and practicalities (turnaround, specimen)
-                surfaced inline.
-              </li>
-            </ul>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <button
-              class="text-sm font-medium text-slate-900 hover:underline flex items-center gap-2 how-toggle"
-              aria-expanded="false"
-              aria-controls="hw-evidence"
-            >
-              How it works
-              <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
-                <path
-                  d="M4 12h14M13 5l7 7-7 7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="hw-evidence" class="mt-3 text-sm text-slate-700 hidden">
-              <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  We parse the chart and update a clinician-editable reasoning
-                  graph.
-                </li>
-                <li>
-                  Each edge cites evidence; editing nodes immediately updates
-                  the plan.
-                </li>
-                <li>
-                  That same graph feeds documentation—no duplicate typing.
-                </li>
-              </ol>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card: Less 'pajama-time' paperwork -->
-        <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-          data-roles="Physicians,Rev Cycle"
-          data-id="paperwork"
-        >
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <div
-                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
-              >
-                <span class="material-icons">shield_moon</span>
-              </div>
-              <h3 class="text-lg font-semibold leading-tight">
-                Less 'pajama-time' paperwork
-              </h3>
-            </div>
-            <p class="text-slate-700 mb-3">
-              Documentation writes itself from your care reasoning—no
-              copy-paste.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
-                >Physicians</span
-              >
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
-                >Rev Cycle</span
-              >
-            </div>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>
-                Auto-generated notes and medical-necessity language pulled
-                directly from the reasoning graph.
-              </li>
-              <li>
-                Smart pre-fill for forms; required fields and attachments
-                handled automatically.
-              </li>
-              <li>Works inside your EHR—one-click to note/inbox.</li>
-            </ul>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <button
-              class="text-sm font-medium text-slate-900 hover:underline flex items-center gap-2 how-toggle"
-              aria-expanded="false"
-              aria-controls="hw-paperwork"
-            >
-              How it works
-              <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
-                <path
-                  d="M4 12h14M13 5l7 7-7 7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="hw-paperwork" class="mt-3 text-sm text-slate-700 hidden">
-              <ol class="list-decimal pl-5 space-y-1">
-                <li>
-                  Clinician decisions populate a structured evidence model.
-                </li>
-                <li>
-                  Templates render payer-ready prose and EHR-ready notes from
-                  that model.
-                </li>
-                <li>Edits are tracked in a versioned audit trail.</li>
-              </ol>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card: Auditable & compliant by design -->
-        <article
-          class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-          data-roles="IT/Compliance,Physicians,Rev Cycle"
-          data-id="auditable"
-        >
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <div
-                class="p-2 rounded-xl bg-slate-900 text-white grid place-items-center text-lg"
-              >
-							<span class="material-icons">manage_search</span>
-              </div>
-              <h3 class="text-lg font-semibold leading-tight">
-                Auditable & compliant by design
-              </h3>
-            </div>
-            <p class="text-slate-700 mb-3">
-              Every decision has a timestamped why, what, and who.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-emerald-100 border border-emerald-200 text-slate-700"
-                >IT/Compliance</span
-              >
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-orange-100 border border-orange-200 text-slate-700"
-                >Physicians</span
-              >
-              <span
-                class="text-xs px-2 py-0.5 rounded-sm bg-yellow-100 border border-yellow-200 text-slate-700"
-                >Rev Cycle</span
-              >
-            </div>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700">
-              <li>Versioned timeline of sources, edits, and approvals.</li>
-              <li>
-                Role-based permissions, SSO, and change-control workflows.
-              </li>
-              <li>Exportable record that stands up to payer scrutiny.</li>
-            </ul>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <button
-              class="text-sm font-medium text-slate-900 hover:underline flex items-center gap-2 how-toggle"
-              aria-expanded="false"
-              aria-controls="hw-auditable"
-            >
-              How it works
-              <svg viewBox="0 0 24 24" class="w-5 h-5 hidden md:block" aria-hidden="true">
-                <path
-                  d="M4 12h14M13 5l7 7-7 7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="hw-auditable" class="mt-3 text-sm text-slate-700 hidden">
-              <ol class="list-decimal pl-5 space-y-1">
-                <li>All graph changes are signed with user + time.</li>
-                <li>
-                  Policy links and criteria snapshots are embedded alongside
-                  decisions.
-                </li>
-                <li>Reports can be reproduced exactly as submitted.</li>
-              </ol>
-            </div>
-          </div>
-        </article>
+            <input type="email" name="email" id="email" placeholder="Email Address" class="w-full py-2 px-4 rounded-full border-2 border-emerald-900 text-emerald-900 bg-emerald-100 placeholder:text-emerald-900/70" required />
+            <button type="submit" class="btn-primary uppercase absolute right-0 top-0 py-2 px-4 border-2 border-emerald-900 hover:cursor-pointer">Notify Me</button>
+            <p id="signup-form-error" class="text-red-500 pt-2 hidden">This is an error message.</p>
+            <p id="signup-form-success" class="text-green-500 pt-2 hidden">This is a success message.</p>
+          </form>
+        </div>
+        <p class="my-4">The healthcare system was designed for patients with little to no medical information. We transform communication documents like discharge reports and after visit summaries into interactive experiences so you can understand your medical care.</p>
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th class="text-2xl font-semibold font-serif text-left pb-4">Status Quo</th>
+              <th class="text-2xl font-semibold font-serif text-left pb-4">Better Future</th>
+            </tr>
+          </thead>
+          <tbody class="space-y-4">
+            <tr class="align-top">
+              <td class="pr-4 pb-4">• 10-15 minute visits with little to no time for questions</td>
+              <td class="pb-4">• Clinicians have the tools to co-create understanding with patients</td>
+            </tr>
+            <tr class="align-top">
+              <td class="pr-4 pb-4">• Documentation optimized for billing & compliance, not understanding</td>
+              <td class="pb-4">• Communication designed for patient comprehension and empowerment</td>
+            </tr>
+            <tr class="align-top">
+              <td class="pr-4 pb-4">• Static discharge summaries and portal PDFs no one can interpret</td>
+              <td class="pb-4">• Interactive, explorable stories of your medical episodes</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
-
-    <!-- How it works -->
-    <section
-      class="max-w-6xl mx-auto px-6 my-32"
-      id="demo"
-      aria-labelledby="how-title"
-    >
-      <h2 id="how-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
-        How it works: Bridging CDS to payer docs
-      </h2>
-      <p class="mb-8 text-center">
-        Care guidance comes first. The paperwork just comes along for the
-        ride—no insurance pop-ups.
-      </p>
-        <div
-          class="flex flex-col md:flex-row items-center md:items-stretch gap-4"
-        >
-          <!-- Step 1 -->
-          <div class="flex-1">
-            <div
-              id="step-1"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
-            >
-							<div
-								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">1</span>
-							</div>
-              <div>
-								<div class="font-medium mb-1">Assess</div>
-								<p class="text-sm text-slate-700">
-									We parse history, labs, and notes into a clinician-editable
-									reasoning graph.
-								</p>
-							</div>
-            </div>
-          </div>
-          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center hidden md:block" aria-hidden="true">
-            <path
-              d="M4 12h14M13 5l7 7-7 7"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <!-- Step 2 -->
-          <div class="flex-1">
-            <div
-              id="step-2"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
-            >
-							<div
-								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">2</span>
-							</div>
-              <div>
-                <div class="font-medium mb-1">Recommend &amp; justify</div>
-              <p class="text-sm text-slate-700">
-                  Each recommendation cites guidelines and patient context; edits
-                  update the graph instantly.
-                </p>
-              </div>
-            </div>
-          </div>
-          <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0 self-center hidden md:block" aria-hidden="true">
-            <path
-              d="M4 12h14M13 5l7 7-7 7"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <!-- Step 3 -->
-          <div class="flex-1">
-            <div
-              id="step-3"
-              class="flex items-center gap-3 h-full cursor-pointer step-div"
-            >
-							<div
-								class="rounded-full bg-emerald-100 border-2 border-emerald-200 step-number p-6 w-8 h-8 flex items-center justify-center mx-auto mb-4"
-							>
-								<span class="font-serif text-xl text-center font-bold">3</span>
-							</div>
-              <div>
-                <div class="font-medium mb-1">Compile payer-ready packet</div>
-              <p class="text-sm text-slate-700">
-                The same graph populates payer-specific fields and narratives—no
-                duplicate typing.
-              </p>
-              </div>
-            </div>
-          </div>
-        </div>
-				<div class="mt-6 rounded-xl bg-white border border-slate-200 shadow-sm p-4">
-					<img id="image-1" src="/screen-step-1.png" alt="Assess - Parse history, labs, and notes" class="w-full step-image rounded-lg border border-slate-200" />
-					<img id="image-2" src="/screen-step-2.png" alt="Recommend & justify - Guidelines and patient context" class="w-full step-image rounded-lg border border-slate-200 hidden" />
-					<img id="image-3" src="/screen-step-3.png" alt="Compile payer-ready packet" class="w-full step-image rounded-lg border border-slate-200 hidden" />
-				</div>
-    </section>
-
-    <!-- Integrations & governance -->
-    <section
-      class="max-w-6xl mx-auto px-6 my-32"
-      id="ehr"
-      aria-labelledby="integrations-title"
-    >
-			<h2 id="integrations-title" class="text-3xl font-semibold font-serif text-center mt-8 mb-4">
-				Works where you work
-			</h2>
-			<p class="mb-8 text-center">
-				(SMART on FHIR &amp; SSO)
-			</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-        <!-- EHR logos -->
-        <div
-          class="lg:col-span-2 justify-center md:border-r border-slate-400"
-        >
-          <div class="flex flex-wrap justify-center gap-6">
-            <div
-              class="h-14 max-w-1/3"
-              title="Epic"
-            >
-              <img src="/logo-epic.svg" alt="Epic" class="h-10" loading="lazy" />
-            </div>
-						<div
-              class="h-14 max-w-1/3"
-              title="Veradigm (Allscripts)"
-            >
-              <img src="/logo-veradigm.svg" alt="Veradigm (Allscripts)" class="h-10" loading="lazy" />
-            </div>
-            <div
-              class="h-14 px-2 max-w-1/3"
-              title="Oracle Health (Cerner)"
-            >
-              <img src="/logo-oracle.svg" alt="Oracle Health (Cerner)" class="h-10" loading="lazy" />
-            </div>
-            <div
-              class="h-14 px-2 max-w-1/3"
-              title="MEDITECH"
-            >
-              <img src="/logo-meditech.svg" alt="MEDITECH" class="h-10" loading="lazy" />
-            </div>
-						<div
-              class="h-14 px-2 max-w-1/3"
-              title="athenahealth"
-            >
-              <img src="/logo-athena.svg" alt="athenahealth" class="h-10" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Governance -->
-        <div class="mx-auto md:mx-0">
-          <h3 class="text-lg font-semibold font-serif mb-2 flex items-center gap-2">
-            <span class="material-icons">lock_person</span>
-            Governance you can trust
-          </h3>
-          <ul class="list-disc pl-5 space-y-1 text-slate-700 text-sm">
-            <li>Role-based access, SSO, and approval flows</li>
-            <li>Versioned change log &amp; exportable audit trail</li>
-            <li>Policy links embedded with each decision</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="max-w-6xl mx-auto px-6 my-32 text-center">
-      <h2 class="text-3xl font-semibold font-serif mb-4">
-        Ready to chat?
-      </h2>
-      <p class="mb-8">
-        Let us show you how Obtego can help you save time, save money, improve
-        patient care, and improve your physician's satisfaction.
-      </p>
-      <a href="mailto:hello@obtego.io" class="btn-primary">Contact Us</a>
-    </section>
-
-    <!-- Persona deep-dives -->
-    <!-- <section
-      class="max-w-6xl mx-auto px-6 mt-10 mb-16"
-      aria-labelledby="deep-dives-title"
-    >
-      <h2 id="deep-dives-title" class="sr-only">Persona deep dives</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <a
-          href="#"
-          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="text-sm text-slate-500 mb-1">Deep dive</div>
-          <div class="text-lg font-semibold">For Physicians</div>
-          <p class="text-sm text-slate-700 mt-2">
-            See workflows, outcomes, and rollout details tailored to your team.
-          </p>
-        </a>
-        <a
-          href="#"
-          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="text-sm text-slate-500 mb-1">Deep dive</div>
-          <div class="text-lg font-semibold">For Rev Cycle</div>
-          <p class="text-sm text-slate-700 mt-2">
-            See workflows, outcomes, and rollout details tailored to your team.
-          </p>
-        </a>
-        <a
-          href="#"
-          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="text-sm text-slate-500 mb-1">Deep dive</div>
-          <div class="text-lg font-semibold">For IT &amp; Compliance</div>
-          <p class="text-sm text-slate-700 mt-2">
-            See workflows, outcomes, and rollout details tailored to your team.
-          </p>
-        </a>
-      </div>
-    </section> -->
 
     <footer
-      class="border-t border-slate-200 py-8 text-center text-sm text-slate-500 bg-white"
+      class="py-8 text-center text-sm text-emerald-900"
     >
       © <span id="year"></span> Obtego
     </footer>
-
-    <aside id="modal" class="fixed top-0 left-0 w-full h-full bg-slate-500/50 z-50 hidden">
-      <div class="max-w-3xl bg-white rounded-xl shadow-lg border border-slate-200 w-3/4 mx-auto p-6 pt-14 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <iframe width="720" height="405" src="https://www.youtube.com/embed/Xvlrs8OGLYQ?si=0-0000000000000000" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="rounded-lg aspect-video demo-video" allowfullscreen></iframe>
-        <button class="absolute top-4 right-4 text-slate-500 hover:text-slate-700 cursor-pointer" onclick="closeVideo()">
-          <span class="material-icons">close</span>
-        </button>
-      </div>
-    </aside>
 
     <!-- Minimal JS for role-based reordering (no content hidden) and 'How it works' expanders -->
     <script>
@@ -786,101 +138,7 @@ import "../styles/global.css";
        * Footer year
        */
 
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-			/*
-			 * Role-based Cards
-			 */
-
-      const grid = document.getElementById("card-grid");
-      const cards = Array.from(grid.children);
-
-      function setActivePill(targetRole) {
-        document.querySelectorAll("#role-pills > button").forEach((btn) => {
-          const isActive = btn.dataset.role === targetRole;
-          btn.setAttribute("aria-selected", String(isActive));
-          btn.classList.toggle("pill-active", isActive);
-        });
-      }
-
-      function reorderByRole(role) {
-        // Matched first (stable by original order), then the rest
-        const matched = [];
-        const rest = [];
-        cards.forEach((card) => {
-          const roles = (card.dataset.roles || "")
-            .split(",")
-            .map((s) => s.trim());
-          if (role === "All" || roles.includes(role)) matched.push(card);
-          else rest.push(card);
-        });
-        const ordered = matched.concat(rest);
-        ordered.forEach((node) => grid.appendChild(node));
-      }
-
-      document.getElementById("role-pills").addEventListener("click", (e) => {
-        const btn = e.target.closest("button[data-role]");
-        if (!btn) return;
-        const role = btn.dataset.role;
-        setActivePill(role);
-        reorderByRole(role);
-      });
-
-      // Expanders
-      document.querySelectorAll(".how-toggle").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("aria-controls");
-          const panel = document.getElementById(id);
-          const expanded = btn.getAttribute("aria-expanded") === "true";
-          btn.setAttribute("aria-expanded", String(!expanded));
-          panel.classList.toggle("hidden");
-        });
-      });
-
-			/*
-			 * How it Works Image Carousel
-			 */
-
-			function initImageCarousel() {
-				const stepDivs = document.querySelectorAll('.step-div');
-				const stepImages = document.querySelectorAll('.step-image');
-
-				// Function to show specific step
-				function showStep(stepNumber: number) {
-					// Hide all images
-					stepImages.forEach(img => img.classList.add('hidden'));
-					
-					// Show selected image
-					const targetImage = document.getElementById(`image-${stepNumber}`);
-					if (targetImage) {
-						targetImage.classList.remove('hidden');
-					}
-
-					// Reset all step divs to inactive state
-					stepDivs.forEach(div => {
-						div.querySelector('.rounded-full').classList.remove('bg-emerald-200');
-					});
-
-					// Activate selected step div
-					const targetStep = document.getElementById(`step-${stepNumber}`);
-					if (targetStep) {
-						targetStep.querySelector('.rounded-full').classList.add('bg-emerald-200');
-					}
-				}
-
-				// Add click handlers to step divs
-				stepDivs.forEach((div, index) => {
-					div.addEventListener('click', () => {
-						showStep(index + 1);
-					});
-				});
-
-				// Initialize with first step active
-				showStep(1);
-			}
-
-			// Initialize the carousel when DOM is loaded
-			document.addEventListener('DOMContentLoaded', initImageCarousel);
+      document.getElementById("year")!.textContent = new Date().getFullYear().toString();
 
 			/*
 			 * Locale Dropdown
@@ -950,37 +208,39 @@ import "../styles/global.css";
 			// Initialize dropdown when DOM is loaded
 			document.addEventListener('DOMContentLoaded', initLocaleDropdown);
 
-			/*
-			 * Video Modal
-			 */
+      /*
+       * Form Submission
+       */
 
-      function initVideoModal() {
-				const modal = document.querySelector('#modal');
-        const openButton = document.querySelector('#open-modal');
-				const closeButton = modal?.querySelector('button');
+      const handleSubmit = (event: Event) => {
+        event.preventDefault();
 
-        function openVideo() {
-          modal?.classList.remove('hidden');
-        }
+        const myForm = event.target;
+        const formData = new FormData(myForm as HTMLFormElement);
 
-        function closeVideo() {
-          modal?.classList.add('hidden');
-        }
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
+        })
+          .then(() => {
+            const successElement = document.getElementById("signup-form-success") as HTMLParagraphElement;
+            if (successElement) {
+              successElement.classList.remove("hidden");
+              successElement.textContent = "Thank you for your interest! We'll be in touch soon.";
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            const errorElement = document.getElementById("signup-form-error") as HTMLParagraphElement;
+            if (errorElement) {
+              errorElement.classList.remove("hidden");
+              errorElement.textContent = "There was an error submitting the form. Please try again.";
+            }
+          });
+      };
 
-        // Close dropdown on escape key
-				document.addEventListener('keydown', (e) => {
-					if (e.key === 'Escape') {
-						closeVideo();
-					}
-				});
-
-        openButton?.addEventListener('click', openVideo);
-        closeButton?.addEventListener('click', closeVideo);
-			}
-
-			// Initialize video modal when DOM is loaded
-			document.addEventListener('DOMContentLoaded', initVideoModal);
-
+      document.getElementById("signup-form")?.addEventListener("submit", handleSubmit);
     </script>
   </body>
 </html>
