@@ -31,7 +31,7 @@ import "../styles/global.css";
         <div class="relative">
           <button 
             id="locale-dropdown-button"
-            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded-md cursor-pointer"
+            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-emerald-900 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-md cursor-pointer"
             aria-expanded="false"
             aria-haspopup="true"
           >
@@ -50,14 +50,14 @@ import "../styles/global.css";
             <div class="py-1" role="none">
               <a 
                 href={homeURLEn}
-                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 {currentLocale === 'en' ? 'bg-slate-50 font-medium' : ''}"
+                class="block px-4 py-2 text-sm text-emerald-900 hover:bg-emerald-100 hover:text-emerald-800 {currentLocale === 'en' ? 'bg-emerald-50 font-medium' : ''}"
                 role="menuitem"
               >
                 English
               </a>
               <a 
                 href={homeURLZhHans}
-                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 {currentLocale === 'zh-Hans' ? 'bg-slate-50 font-medium' : ''}"
+                class="block px-4 py-2 text-sm text-emerald-900 hover:bg-emerald-100 hover:text-emerald-800 {currentLocale === 'zh-Hans' ? 'bg-emerald-50 font-medium' : ''}"
                 role="menuitem"
               >
                 中文
@@ -73,7 +73,7 @@ import "../styles/global.css";
       aria-labelledby="hero-title"
       class="relative isolate overflow-hidden flex-1 flex items-center"
     >
-      <div class="relative max-w-3xl ml-48 px-6 py-24 text-center md:text-left">
+      <div class="relative max-w-3xl xl:ml-48 mx-auto px-6 py-24">
         <img src="/obtego-logo.svg" alt="Obtego" class="h-16" />
         <h1
           id="hero-title"
@@ -101,7 +101,7 @@ import "../styles/global.css";
           </form>
         </div>
         <p class="my-4">The healthcare system was designed for patients with little to no medical information. We transform communication documents like discharge reports and after visit summaries into interactive experiences so you can understand your medical care.</p>
-        <table class="w-full">
+        <table class="w-full md:table hidden">
           <thead>
             <tr>
               <th class="text-2xl font-semibold font-serif text-left pb-4">Status Quo</th>
@@ -111,18 +111,32 @@ import "../styles/global.css";
           <tbody class="space-y-4">
             <tr class="align-top">
               <td class="pr-4 pb-4">• 10-15 minute visits with little to no time for questions</td>
-              <td class="pb-4">• Clinicians have the tools to co-create understanding with patients</td>
+              <td class="pb-4">• Doctors have the tools to co-create understanding with patients</td>
             </tr>
             <tr class="align-top">
               <td class="pr-4 pb-4">• Documentation optimized for billing & compliance, not understanding</td>
               <td class="pb-4">• Communication designed for patient comprehension and empowerment</td>
             </tr>
             <tr class="align-top">
-              <td class="pr-4 pb-4">• Static discharge summaries and portal PDFs no one can interpret</td>
+              <td class="pr-4 pb-4">• Static discharge summaries and portal PDFs that are difficult to interpret</td>
               <td class="pb-4">• Interactive, explorable stories of your medical episodes</td>
             </tr>
           </tbody>
         </table>
+        <div class="md:hidden">
+          <h2 class="text-2xl font-semibold font-serif text-left my-4">Status Quo</h2>
+          <ul class="list-disc list-inside">
+            <li>10-15 minute visits with little to no time for questions</li>
+            <li>Documentation optimized for billing & compliance, not understanding</li>
+            <li>Static discharge summaries and portal PDFs that are difficult to interpret</li>
+          </ul>
+          <h2 class="text-2xl font-semibold font-serif text-left my-4">Better Future</h2>
+          <ul class="list-disc list-inside">
+            <li>Doctors have the tools to co-create understanding with patients</li>
+            <li>Communication designed for patient comprehension and empowerment</li>
+            <li>Interactive, explorable stories of your medical episodes</li>
+          </ul>
+        </div>
       </div>
     </section>
 
