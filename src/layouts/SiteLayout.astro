@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/utils';
 import "../styles/global.css";
 
 interface Props {
@@ -17,6 +18,8 @@ const localeNames: Record<string, string> = {
   "en": "English",
   "zh-hans": "中文"
 };
+
+const t = useTranslations(lang as "en" | "zh-hans");
 ---
 
 <!DOCTYPE html>
@@ -76,7 +79,7 @@ const localeNames: Record<string, string> = {
             </a>
           </div>
         </div>
-        <a href="#signup" class="btn-primary nav-cta">Get Early Access</a>
+        <a href="#signup" class="btn-primary nav-cta">{t("nav.signup")}</a>
       </div>
     </nav>
 
